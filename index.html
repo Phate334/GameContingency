@@ -1,0 +1,155 @@
+<!DECTYPE html>
+<html ng-app="GameContingency">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Game 2*2 Contingency Table</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body ng-controller="MainCtrl as ctrl">
+        <table class="team-data">
+            <caption>目前戰績</caption>
+            <tr>
+                <th>&nbsp;</th>
+                <th>隊名</th>
+                <th>勝場</th>
+                <th>敗場</th>
+            </tr>
+            <tr>
+                <td><div class="t0-color"></div></td>
+                <td><input type="text" maxlength="10" ng-model="ctrl.name[0]"/></td>
+                <td><input type="number" min="0" max="10" ng-model="ctrl.win[0]"/></td>
+                <td><input type="number" min="0" max="10" ng-model="ctrl.lose[0]"/></td>
+            </tr>
+            <tr>
+                <td><div class="t1-color"></div></td>
+                <td><input type="text" maxlength="10" ng-model="ctrl.name[1]"/></td>
+                <td><input type="number" min="0" max="10" ng-model="ctrl.win[1]"/></td>
+                <td><input type="number" min="0" max="10" ng-model="ctrl.lose[1]"/></td>
+            </tr>
+            <tr>
+                <td><div class="t2-color"></div></td>
+                <td><input type="text" maxlength="10" ng-model="ctrl.name[2]"/></td>
+                <td><input type="number" min="0" max="10" ng-model="ctrl.win[2]"/></td>
+                <td><input type="number" min="0" max="10" ng-model="ctrl.lose[2]"/></td>
+            </tr>
+            <tr>
+                <td><div class="t3-color"></div></td>
+                <td><input type="text" maxlength="10" ng-model="ctrl.name[3]"/></td>
+                <td><input type="number" min="0" max="10" ng-model="ctrl.win[3]"/></td>
+                <td><input type="number" min="0" max="10" ng-model="ctrl.lose[3]"/></td>
+            </tr>
+        </table>
+        <hr>
+        <table class="contingencyTable" border="1">
+            <caption>未來場次</caption>
+            <tr>
+                <th>勝方</th>
+                <td align="center">{{ctrl.name[0]}}</td>
+                <td align="center">{{ctrl.name[1]}}</td>
+            </tr>
+            <tr>
+                <td>{{ctrl.name[2]}}</td>
+                <td>
+                    <table id="contingency-a">
+                        <tr>
+                            <td><div class="t0-color"></div></td>
+                            <td><p>{{ctrl.win[0]+1}} - {{ctrl.lose[0]}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t1-color"></div></td>
+                            <td><p>{{ctrl.win[1]}} - {{ctrl.lose[1]+1}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t2-color"></div></td>
+                            <td><p>{{ctrl.win[2]+1}} - {{ctrl.lose[2]}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t3-color"></div></td>
+                            <td><p>{{ctrl.win[3]}} - {{ctrl.lose[3]+1}}</p></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table id="contingency-b">
+                        <tr>
+                            <td><div class="t0-color"></div></td>
+                            <td><p>{{ctrl.win[0]}} - {{ctrl.lose[0]+1}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t1-color"></div></td>
+                            <td><p>{{ctrl.win[1]+1}} - {{ctrl.lose[1]}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t2-color"></div></td>
+                            <td><p>{{ctrl.win[2]+1}} - {{ctrl.lose[2]}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t3-color"></div></td>
+                            <td><p>{{ctrl.win[3]}} - {{ctrl.lose[3]+1}}</p></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ctrl.name[3]}}</td>
+                <td>
+                    <table id="contingency-c">
+                        <tr>
+                            <td><div class="t0-color"></div></td>
+                            <td><p>{{ctrl.win[0]+1}} - {{ctrl.lose[0]}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t1-color"></div></td>
+                            <td><p>{{ctrl.win[1]}} - {{ctrl.lose[1]+1}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t2-color"></div></td>
+                            <td><p>{{ctrl.win[2]}} - {{ctrl.lose[2]+1}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t3-color"></div></td>
+                            <td><p>{{ctrl.win[3]+1}} - {{ctrl.lose[3]}}</p></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table id="contingency-d">
+                        <tr>
+                            <td><div class="t0-color"></div></td>
+                            <td><p>{{ctrl.win[0]}} - {{ctrl.lose[0]+1}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t1-color"></div></td>
+                            <td><p>{{ctrl.win[1]+1}} - {{ctrl.lose[1]}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t2-color"></div></td>
+                            <td><p>{{ctrl.win[2]}} - {{ctrl.lose[2]+1}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><div class="t3-color"></div></td>
+                            <td><p>{{ctrl.win[3]+1}} - {{ctrl.lose[3]}}</p></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+        <script type="text/javascript">
+            angular.module('GameContingency', [])
+                .controller('MainCtrl', [function(){
+                    var self = this;
+                    self.name = [];
+                    self.win = [];
+                    self.lose = [];
+                    for(i = 0; i < 4; i++)
+                    {
+                        self.name[i] = "T"+i;
+                        self.win[i] = 0;
+                        self.lose[i] = 0;
+                    }
+                }]);
+        </script>
+    </body>
+</html>
